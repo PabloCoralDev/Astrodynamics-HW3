@@ -2,8 +2,8 @@ import numpy as np
 
 def get_orbital_params(position_velocity_vector, miu=398600.4418):
     """
-    This function works under the assumption that earth is an inertially fixed frame and thus:
-    Ix, Iy, Iz = [1,1,1]
+    Position & inertial velocity [r, v] -> orbital elements [a, e, O, i, w, nu] (angles in degrees).
+    Assumes the planet is an inertial frame with basis Ix = [1,0,0], Iy = [0,1,0], Iz = [0,0,1].
     """
     
     # little helper
@@ -85,7 +85,6 @@ def get_orbital_params(position_velocity_vector, miu=398600.4418):
 
     # put together ourputs into vec: [a, e, O, i, w, nu]
     out_vec = [a, e, O, i, w, nu]
-    print(out_vec)
 
     return out_vec
 

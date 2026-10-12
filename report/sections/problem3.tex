@@ -1,0 +1,40 @@
+\section{Problem 3}
+\label{sec:problem3}
+
+The angles $\Omega$, $i$, $\omega$, and $\nu$ are all computed with a four-quadrant inverse tangent (\cref{tab:p1-angles}), which is undefined at $\tan^{-1}(0,0)$. This occurs in the following cases.
+\begin{enumerate}
+    \item Circular orbit, $e=0$, so $\vect{e}=\vect{0}$. The true anomaly is measured from periapsis, but a circle has no periapsis:
+    \begin{equation}
+    \nu = \tan^{-1}\!\left(\vect{r}\cdot\left[\ivect{h}\times\vect{e}\right],\ h\left[\vect{r}\cdot\vect{e}\right]\right) = \tan^{-1}(0,0).
+    \end{equation}
+    \item Equatorial orbit, $i=0$. Since $\ivect{h}\parallel\vect{I}_z$, the line of nodes vanishes, $\vect{n} = \vect{I}_z\times\ivect{h} = \vect{0}$, and
+    \begin{equation}
+    \Omega = \tan^{-1}\!\left(\vect{n}\cdot\vect{I}_y,\ \vect{n}\cdot\vect{I}_x\right) = \tan^{-1}(0,0).
+    \end{equation}
+    \item Cases 1 and 2 imply that $\omega$ is undefined if the orbit is equatorial ($\vect{n}=\vect{0}$) or circular ($\vect{e}=\vect{0}$):
+    \begin{equation}
+    \omega = \tan^{-1}\!\left(\vect{e}\cdot\left[\ivect{h}\times\vect{n}\right],\ h\left[\vect{e}\cdot\vect{n}\right]\right) = \tan^{-1}(0,0).
+    \end{equation}
+\end{enumerate}
+The remaining elements are summarized with these cases in \cref{tab:p3}.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{@{}llX@{}}
+\toprule
+Element & Not defined when & Why \\
+\midrule
+$a$ & $e=1$ (parabolic) & $a = p/(1-e^2) = p/0 \rightarrow \infty$; not physically meaningful for an open orbit \\
+$e$ & always defined & $e\in[0,\infty)$ \\
+$i$ & $\ivect{h}=\vect{0}$ & no orbit plane; still defined for $\vect{n}=\vect{0}$ \\
+$\Omega$ & $i=0$ (equatorial) & $\vect{n}=\vect{0}$ \\
+$\omega$ & $i=0$ or $e=0$ & $\vect{n}=\vect{0}$ or $\vect{e}=\vect{0}$ \\
+$\nu$ & $e=0$ (circular) & $\vect{e}=\vect{0}$; no periapsis \\
+\bottomrule
+\end{tabularx}
+\caption{Cases where each orbital element is not well defined.}
+\label{tab:p3}
+\end{table}
+
+\FloatBarrier

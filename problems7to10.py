@@ -25,7 +25,7 @@ for k, (name, params, miu, R_planet, (r_unit, v_unit)) in enumerate(problems):
     r, v = get_velocity_position_vector(params, miu=miu)
 
     # print problem label, r and v vecs for each
-    label = f"r = [{r[0]:.2f}, {r[1]:.2f}, {r[2]:.2f}] {r_unit}\n  v = [{v[0]:.3f}, {v[1]:.3f}, {v[2]:.3f}] {v_unit}"
+    label = f"r = [{r[0]:.2f}, {r[1]:.2f}, {r[2]:.2f}] {r_unit}\nv = [{v[0]:.3f}, {v[1]:.3f}, {v[2]:.3f}] {v_unit}"
     print(f"\n{name}\n{label}")
 
 
@@ -44,4 +44,5 @@ for k, (name, params, miu, R_planet, (r_unit, v_unit)) in enumerate(problems):
     ax.set(title=name, xlabel=f"X ({r_unit})", ylabel=f"Y ({r_unit})", zlabel=f"Z ({r_unit})", aspect="equal")
 
 plt.tight_layout()
+plt.savefig("report/figures/problems7to10_orbits.png", dpi=200)
 plt.show()

@@ -1,0 +1,36 @@
+\section{Problem 2}
+\label{sec:problem2}
+
+The function \texttt{get\_velocity\_position\_vector} (\cref{app:p2-code}) performs the inverse operation. It takes $\Theta$ and $\mu$ and returns $[\vect{r}]_I$ and $[\ivect{V}]_I$ in PCI coordinates. The perifocal basis is reached from the inertial basis by three rotations in a 3--1--3 sequence (\cref{fig:p2}):
+\begin{enumerate}
+    \item A 3-rotation by $\Omega$ about $\vect{I}_z$ aligns $\vect{I}_x$ with the line of nodes $\vect{n}$.
+    \item A 1-rotation by $i$ about $\vect{n}$ aligns $\vect{I}_z$ with $\ivect{h}$.
+    \item A 3-rotation by $\omega$ about $\ivect{h}$ aligns $\vect{I}_x$ with $\vect{e}$, which points to periapsis.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\input{figures/fig_p2}
+\caption{3--1--3 rotation of the inertial basis $\{\vect{I}_x,\vect{I}_y,\vect{I}_z\}$ into the perifocal basis: rotation by $\Omega$ about $\vect{I}_z$, by $i$ about $\vect{n}$, then by $\omega$ about $\ivect{h}$. In each step the axes are gray before and purple after the rotation. Each axis keeps its name and is labeled with the vector it is aligned with.}
+\label{fig:p2}
+\end{figure}
+
+The position and inertial velocity are first written in the perifocal basis,
+\begin{equation}
+r = \frac{a(1-e^2)}{1+e\cos\nu}, \qquad
+\left[\vect{r}\right]_{\text{perifocal}} = \begin{bmatrix} r\cos\nu \\ r\sin\nu \\ 0 \end{bmatrix}, \qquad
+\left[\ivect{V}\right]_{\text{perifocal}} = \sqrt{\frac{\mu}{p}}\begin{bmatrix} -\sin\nu \\ e+\cos\nu \\ 0 \end{bmatrix},
+\end{equation}
+and then transformed to PCI coordinates:
+\begin{equation}
+\setlength{\fboxsep}{8pt}
+\boxed{
+\begin{gathered}
+\left[\vect{r}\right]_{\text{inertial}} = T^{\text{inertial}}_{\text{perifocal}}\left[\vect{r}\right]_{\text{perifocal}}, \qquad
+\left[\ivect{V}\right]_{\text{inertial}} = T^{\text{inertial}}_{\text{perifocal}}\left[\ivect{V}\right]_{\text{perifocal}} \\[10pt]
+T^{\text{inertial}}_{\text{perifocal}} = R_3(\Omega)\,R_1(i)\,R_3(\omega)
+\end{gathered}
+}
+\end{equation}
+
+\FloatBarrier

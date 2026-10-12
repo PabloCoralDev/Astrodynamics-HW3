@@ -1,0 +1,74 @@
+\section{Problem 4}
+\label{sec:problem4}
+
+The specific angular momentum $\ivect{h}$, the eccentricity vector $\vect{e}$, and the line of nodes $\vect{n}$ are shown to be constant in the inertial frame. The planet is treated as an inertial reference frame and all distances are measured from its center, so no extra transport theorem terms appear.
+
+\subsection*{(a) Specific angular momentum}
+
+Differentiating $\ivect{h}$ in the inertial frame,
+\begin{equation}
+\ivect{h} = \vect{r}\times\ivect{V}, \qquad
+\Iddt\left(\ivect{h}\right) = \Iddt(\vect{r})\times\ivect{V} + \vect{r}\times\Iddt\left(\ivect{V}\right) = \underbrace{\ivect{V}\times\ivect{V}}_{\vect{0}} + \vect{r}\times\ivect{a},
+\end{equation}
+where the first term vanishes because the cross product of collinear vectors is zero. From the two-body differential equation,
+\begin{equation}
+\ivect{a} + \frac{\mu}{r^3}\vect{r} = \vect{0} \;\Rightarrow\; \ivect{a} = -\frac{\mu}{r^3}\vect{r},
+\qquad\therefore\quad
+\vect{0} + \vect{r}\times\left(-\frac{\mu}{r^3}\vect{r}\right) = -\frac{\mu}{r^3}\left(\vect{r}\times\vect{r}\right) = \vect{0},
+\end{equation}
+\begin{equation}
+\boxed{\Iddt\left(\ivect{h}\right) = \vect{0}}
+\end{equation}
+
+\subsection*{(b) Eccentricity vector}
+
+The eccentricity vector is split into two terms,
+\begin{equation}
+\vect{e} = \underbrace{\frac{\ivect{V}\times\ivect{h}}{\mu}}_{A} - \underbrace{\frac{\vect{r}}{r}}_{B},
+\end{equation}
+and each is differentiated separately. If $\Iddt(\vect{e}) = \vect{0}$, then $\vect{e}$ is fixed in time.
+
+\paragraph{A:} Using the result of (a),
+\begin{equation}
+\begin{aligned}
+\frac{1}{\mu}\Iddt\left(\ivect{V}\times\ivect{h}\right) &= \frac{1}{\mu}\left[\Iddt\left(\ivect{V}\right)\times\ivect{h} + \ivect{V}\times\underbrace{\Iddt\left(\ivect{h}\right)}_{\vect{0}\text{ from (a)}}\right] \\
+&= \frac{1}{\mu}\left(\ivect{a}\times\ivect{h}\right)
+= \frac{1}{\mu}\left(-\frac{\mu}{r^3}\vect{r}\times\ivect{h}\right) = -\frac{1}{r^3}\left(\vect{r}\times\ivect{h}\right).
+\end{aligned}
+\end{equation}
+Expanding $\ivect{h}$ and applying the vector triple product, $\vect{a}\times(\vect{b}\times\vect{c}) = (\vect{a}\cdot\vect{c})\vect{b} - (\vect{a}\cdot\vect{b})\vect{c}$ with $\vect{a}=\vect{b}=\vect{r}$ and $\vect{c}=\ivect{V}$,
+\begin{equation}
+-\frac{1}{r^3}\left(\vect{r}\times\left(\vect{r}\times\ivect{V}\right)\right)
+= -\frac{1}{r^3}\left[\left(\vect{r}\cdot\ivect{V}\right)\vect{r} - r^2\,\ivect{V}\right],
+\qquad
+\therefore\quad \Iddt(A) = \frac{\ivect{V}}{r} - \frac{\left(\vect{r}\cdot\ivect{V}\right)}{r^3}\vect{r}.
+\end{equation}
+
+\paragraph{B:} Applying the quotient rule with $u=\vect{r}$, $u'=\ivect{V}$, $w=r$, and $w'=\dot r = \ivect{V}\cdot\dfrac{\vect{r}}{r} = \dfrac{\left(\vect{r}\cdot\ivect{V}\right)}{r}$,
+\begin{equation}
+\Iddt\left(\frac{\vect{r}}{r}\right) = \frac{\ivect{V}\,r - \dot r\,\vect{r}}{r^2}
+= \frac{\ivect{V}}{r} - \frac{\dot r}{r^2}\vect{r}
+= \frac{\ivect{V}}{r} - \frac{\left(\vect{r}\cdot\ivect{V}\right)}{r^3}\vect{r}.
+\end{equation}
+Subtracting the two results,
+\begin{equation}
+\Iddt(\vect{e}) = \Iddt(A) - \Iddt(B)
+= \left[\frac{\ivect{V}}{r} - \frac{\left(\vect{r}\cdot\ivect{V}\right)}{r^3}\vect{r}\right]
+- \left[\frac{\ivect{V}}{r} - \frac{\left(\vect{r}\cdot\ivect{V}\right)}{r^3}\vect{r}\right],
+\end{equation}
+\begin{equation}
+\boxed{\Iddt(\vect{e}) = \vect{0}}
+\end{equation}
+Therefore, $\vect{e}$ is fixed in the inertial frame.
+
+\subsection*{(c) Line of nodes}
+
+Since $\vect{I}_z$ is fixed in the inertial frame and $\Iddt\left(\ivect{h}\right)=\vect{0}$ from (a),
+\begin{equation}
+\vect{n} = \vect{I}_z\times\ivect{h}, \qquad
+\Iddt(\vect{n}) = \underbrace{\Iddt\left(\vect{I}_z\right)}_{\vect{0}}\times\ivect{h} + \vect{I}_z\times\underbrace{\Iddt\left(\ivect{h}\right)}_{\vect{0}},
+\qquad
+\boxed{\Iddt(\vect{n}) = \vect{0}}
+\end{equation}
+
+\FloatBarrier

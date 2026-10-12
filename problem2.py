@@ -4,7 +4,7 @@ from scipy.spatial.transform import Rotation as R
 
 def get_velocity_position_vector(orbital_parameters, miu=398600.4418):
 
-    ## simple Euler rotations — Can use scipy.spacial.transform
+    ## simple Euler rotations - Can use scipy.spacial.transform
     # destruct from incoming vector
     a, e, O, i, w, nu = orbital_parameters 
 

@@ -1,0 +1,46 @@
+% Problem 2: 3-1-3 rotation, inertial -> perifocal (drawn with Omega = 60, i = 35, omega = 50 deg)
+% oblique projection: x -> (-0.9,-0.7), y -> (1.4,0), z -> (0,1.4)
+\begin{tikzpicture}[>=Stealth, scale=1.15]
+    \tikzset{old/.style={->,gray,thick}, new/.style={->,hwpurple,very thick},
+        rot/.style={hwmagenta,thick},
+        rotfront/.style={rot,-{Stealth[length=5pt,width=4.5pt,bend]},preaction={draw,white,line width=3pt,-}}}
+
+    % ---------- (1) 3-rotation by Omega about I_z ----------
+    \begin{scope}
+        \draw[rot] (0.3,1.0) arc[start angle=0, end angle=180, x radius=0.3, y radius=0.1];
+        \draw[old] (0,0) -- (-0.9,-0.7) node[below left,inner sep=1pt] {$\vect{I}_x$};
+        \draw[old] (0,0) -- (1.4,0) node[right] {$\vect{I}_y$};
+        \draw[old] (0,0) -- (0,1.4) node[above] {$\vect{I}_z$};
+        \draw[new] (0,0) -- (0.762,-0.35) node[below right,inner sep=1pt] {$\vect{I}_x,\ \vect{n}$};
+        \draw[new] (0,0) -- (1.479,0.606) node[right] {$\vect{I}_y$};
+        \draw[rotfront] (-0.3,1.0) arc[start angle=180, end angle=330, x radius=0.3, y radius=0.1];
+        \node[hwmagenta] at (0.55,1.0) {$\Omega$};
+        \node at (0.25,-1.3) {(1) 3--$z$};
+    \end{scope}
+
+    % ---------- (2) 1-rotation by i about n ----------
+    \begin{scope}[shift={(4.2,0)}]
+        \draw[rot,shift={(-0.45,-0.35)},rotate=127.9] (-0.25,0) arc[start angle=180, end angle=360, x radius=0.25, y radius=0.09];
+        \draw[old] (0,0) -- (-0.9,-0.7) node[below left,inner sep=1pt] {$\vect{I}_x,\ \vect{n}$};
+        \draw[old] (0,0) -- (1.4,0) node[below right,inner sep=1pt] {$\vect{I}_y$};
+        \draw[old] (0,0) -- (0,1.4) node[above right,inner sep=1pt] {$\vect{I}_z$};
+        \draw[new] (0,0) -- (-0.803,1.147) node[above] {$\vect{I}_z,\ \ivect{h}$};
+        \draw[new] (0,0) -- (1.147,0.803) node[right] {$\vect{I}_y$};
+        \draw[rotfront,shift={(-0.45,-0.35)},rotate=127.9] (0.25,0) arc[start angle=0, end angle=150, x radius=0.25, y radius=0.09];
+        \node[hwmagenta] at (-0.12,-0.55) {$i$};
+        \node at (0.25,-1.3) {(2) 1--$x$};
+    \end{scope}
+
+    % ---------- (3) 3-rotation by omega about h ----------
+    \begin{scope}[shift={(8.4,0)}]
+        \draw[rot] (0.3,1.0) arc[start angle=0, end angle=180, x radius=0.3, y radius=0.1];
+        \draw[old] (0,0) -- (-0.9,-0.7) node[below left,inner sep=1pt] {$\vect{I}_x,\ \vect{n}$};
+        \draw[old] (0,0) -- (1.4,0) node[right] {$\vect{I}_y$};
+        \draw[old] (0,0) -- (0,1.4) node[above] {$\vect{I}_z,\ \ivect{h}$};
+        \draw[new] (0,0) -- (0.493,-0.45) node[below right,inner sep=1pt] {$\vect{I}_x,\ \vect{e}$};
+        \draw[new] (0,0) -- (1.589,0.536) node[right] {$\vect{I}_y$};
+        \draw[rotfront] (-0.3,1.0) arc[start angle=180, end angle=330, x radius=0.3, y radius=0.1];
+        \node[hwmagenta] at (0.55,1.0) {$\omega$};
+        \node at (0.25,-1.3) {(3) 3--$z$};
+    \end{scope}
+\end{tikzpicture}
